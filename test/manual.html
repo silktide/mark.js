@@ -26,9 +26,8 @@
       done: function(counter) {
         const end = new Date(),
           time = end.getTime() - start.getTime();
-        console.log(
-          "Time elapsed: " + time + "ms.",
-          "Elements: " + counter
+        alert(
+          "Time elapsed: " + time + "ms. " + "Elements: " + counter
         );
       }
     });
