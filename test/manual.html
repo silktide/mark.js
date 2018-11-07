@@ -16,12 +16,13 @@
 <script>
   console.log(Mark);
   const $ctx = $("#context");
-  $ctx.load("fixtures/basic/main.html", function() {
+  $ctx.load("fixtures/iframes/nested.html", function() {
     let start = new Date(),
       instance = new Mark($ctx.get());
     console.log(instance);
     instance.mark("lorem", {
       debug: true,
+      iframes: true,
       done: function(counter) {
         const end = new Date(),
           time = end.getTime() - start.getTime();
@@ -29,17 +30,6 @@
           "Time elapsed: " + time + "ms.",
           "Elements: " + counter
         );
-        setTimeout(function() {
-          start = new Date();
-          instance.unmark({
-            debug: true,
-            done: function() {
-              const end = new Date(),
-                time = end.getTime() - start.getTime();
-              console.log("Time elapsed: " + time + "ms.");
-            }
-          });
-        }, 2000);
       }
     });
   });

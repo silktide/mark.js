@@ -27,6 +27,8 @@
             // included after the document was fully loaded
             var target = document.getElementById("iframes-nested-inc-target");
             var iframe = document.createElement("iframe");
+            iframe.width = 400;
+            iframe.height = 350;
             iframe.src = "inc.html";
             target.appendChild(iframe);
         </script>

@@ -14,8 +14,9 @@
         // included after the document was fully loaded
         var target = document.getElementById("iframes-nested-target");
         var iframe = document.createElement("iframe");
-        iframe.src = jasmine.getFixtures().fixturesPath +
-            "/iframes/nested-inc.html";
+        iframe.height = 600;
+        iframe.width = 500;
+        iframe.src = "/test/fixtures/iframes/nested-inc.html";
         target.appendChild(iframe);
     </script>
 </div>
