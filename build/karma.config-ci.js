@@ -4,8 +4,11 @@ module.exports = config => {
   const customLaunchers = {
     'SL_Android_6': {
       base: 'SauceLabs',
-      browserName: 'android',
-      version: '6.0'
+      browserName: 'Chrome',
+      platform: 'Android',
+      version: '7.1',
+      deviceName: 'Samsung Galaxy S9 Plus WQHD GoogleAPI Emulator',
+      deviceOrientation: 'portrait'
     }
   };
   config.set({
