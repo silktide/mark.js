@@ -2,16 +2,6 @@
 module.exports = config => {
   // Define Sauce Labs browsers
   const customLaunchers = {
-    'SL_Android_4': {
-      base: 'SauceLabs',
-      browserName: 'android',
-      version: '4.4'
-    },
-    'SL_Android_5': {
-      base: 'SauceLabs',
-      browserName: 'android',
-      version: '5.1'
-    },
     'SL_Android_6': {
       base: 'SauceLabs',
       browserName: 'android',
