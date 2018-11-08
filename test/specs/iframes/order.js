@@ -18,7 +18,6 @@ describe('mark with iframes DOM order', function() {
   });
 
   it('should wrap elements in the DOM order', function() {
-    console.log('DOM order: ', elements.length);
     expect(elements.length).toBe(6);
     elements.forEach(function(node, i){
       var thisDoc = $(node).prop('ownerDocument'),

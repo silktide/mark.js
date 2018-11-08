@@ -14,9 +14,13 @@ describe('mark with acrossElements and matches across iframes', function() {
         'iframes': true,
         'acrossElements': true,
         'each': function($m) {
+          console.log('Each called');
           $elements = $elements.add($($m));
         },
-        'done': done
+        'done': function() {
+          console.log('Done called');
+          done();
+        }
       });
     } catch (e) {
       errCall++;
@@ -24,6 +28,8 @@ describe('mark with acrossElements and matches across iframes', function() {
   }, 30000); // 30 sec timeout
 
   it('should wrap matches across iframes recursively', function() {
+    console.log('Errcall: ', errCall, 0);
+    console.log('Elements: ', $elements.length, 30);
     expect(errCall).toBe(0);
     expect($elements).toHaveLength(30); // including whitespace matches
   });

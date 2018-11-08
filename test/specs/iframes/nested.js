@@ -14,10 +14,9 @@ describe('mark in nested iframes', function() {
         'iframes': true,
         'each': function($m) {
           $elements = $elements.add($($m));
-          console.log('Each called');
         },
         'done': function(){
-          console.log('Done called');
+
           done();
         }
       });
@@ -27,8 +26,6 @@ describe('mark in nested iframes', function() {
   }, 30000); // 30 sec timeout
 
   it('should wrap matches inside iframes recursively', function() {
-    console.log('ErrCall: ', errCall, 0);
-    console.log($elements.length);
     expect(errCall).toBe(0);
     expect($elements).toHaveLength(12);
   });
