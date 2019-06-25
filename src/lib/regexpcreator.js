@@ -349,6 +349,7 @@ class RegExpCreator {
    * @return {string}
    */
   createMergedBlanksRegExp(str) {
+    str = str.replace(/\s[\s\u0000]*\s(\u0000?)/gmi, '[\\s]+$1');
     return str.replace(/[\s]+/gmi, '[\\s]+');
   }
 
