@@ -1,7 +1,7 @@
 /*!***************************************************
 * mark.js v9.0.0
 * https://markjs.io/
-* Copyright (c) 2014–2018, Julian Kühnel
+* Copyright (c) 2014–2019, Julian Kühnel
 * Released under the MIT license https://git.io/vwTVl
 *****************************************************/
 
@@ -617,6 +617,7 @@
     }, {
       key: "createMergedBlanksRegExp",
       value: function createMergedBlanksRegExp(str) {
+        str = str.replace(/\s[\s\u0000]*\s(\u0000?)/gmi, '[\\s]+$1');
         return str.replace(/[\s]+/gmi, '[\\s]+');
       }
     }, {
@@ -924,7 +925,7 @@
             var match;
 
             while ((match = regex.exec(node.textContent)) !== null && match[matchIdx] !== '') {
-              if (_this5.opt.separateGroups) {
+              if (_this5.opt.separateGroups && match.length !== 1) {
                 node = _this5.separateGroups(node, match, matchIdx, filterCb, eachCb);
               } else {
                 if (!filterCb(match[matchIdx], node)) {
