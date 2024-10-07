@@ -1,15 +1,15 @@
 /*!***************************************************
 * mark.js v9.0.0
 * https://markjs.io/
-* Copyright (c) 2014–2019, Julian Kühnel
+* Copyright (c) 2014–2024, Julian Kühnel
 * Released under the MIT license https://git.io/vwTVl
 *****************************************************/
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.Mark = factory());
-}(this, (function () { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Mark = factory());
+})(this, (function () { 'use strict';
 
   class DOMIterator {
     constructor(ctx, iframes = true, exclude = [], iframesTimeout = 5000) {
@@ -476,7 +476,7 @@
     }
   }
 
-  class Mark {
+  class Mark$1 {
     constructor(ctx) {
       this.ctx = ctx;
       this.ie = false;
@@ -935,8 +935,8 @@
     }
   }
 
-  function Mark$1(ctx) {
-    const instance = new Mark(ctx);
+  function Mark(ctx) {
+    const instance = new Mark$1(ctx);
     this.mark = (sv, opt) => {
       instance.mark(sv, opt);
       return this;
@@ -956,6 +956,6 @@
     return this;
   }
 
-  return Mark$1;
+  return Mark;
 
-})));
+}));

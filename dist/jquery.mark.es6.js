@@ -1,17 +1,19 @@
 /*!***************************************************
 * mark.js v9.0.0
 * https://markjs.io/
-* Copyright (c) 2014–2019, Julian Kühnel
+* Copyright (c) 2014–2024, Julian Kühnel
 * Released under the MIT license https://git.io/vwTVl
 *****************************************************/
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (global.Mark = factory(global.jQuery));
-}(this, (function ($) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Mark = factory(global.jQuery));
+})(this, (function ($) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
 
   class DOMIterator {
     constructor(ctx, iframes = true, exclude = [], iframesTimeout = 5000) {
@@ -937,23 +939,23 @@
     }
   }
 
-  $.fn.mark = function(sv, opt) {
+  $__default["default"].fn.mark = function(sv, opt) {
     new Mark(this.get()).mark(sv, opt);
     return this;
   };
-  $.fn.markRegExp = function(regexp, opt) {
+  $__default["default"].fn.markRegExp = function(regexp, opt) {
     new Mark(this.get()).markRegExp(regexp, opt);
     return this;
   };
-  $.fn.markRanges = function(ranges, opt) {
+  $__default["default"].fn.markRanges = function(ranges, opt) {
     new Mark(this.get()).markRanges(ranges, opt);
     return this;
   };
-  $.fn.unmark = function(opt) {
+  $__default["default"].fn.unmark = function(opt) {
     new Mark(this.get()).unmark(opt);
     return this;
   };
 
-  return $;
+  return $__default["default"];
 
-})));
+}));
